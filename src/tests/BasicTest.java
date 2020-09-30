@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +24,8 @@ public class BasicTest {
 	protected String baseURL = "http://demo.yo-meals.com/";
 	protected String email = "customer@dummyid.com";
 	protected String password = "12345678a";
-
+	protected JavascriptExecutor js;
+	
 	@BeforeClass
 
 	public void beforeClass() {
@@ -33,6 +35,8 @@ public class BasicTest {
 		new WebDriverWait(driver, 30);
 		this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		this.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		js = (JavascriptExecutor) driver;
+
 	
 	}
 
