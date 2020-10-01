@@ -11,12 +11,13 @@ public class AuthPage extends BasicPage {
 	public AuthPage(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
 		super(driver, wait, js);
 	}
+
 	public WebElement getLogoutButton() {
-		
+
 		return this.driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div[2]/div[2]/ul/li/div/ul/li[2]/a"));
-		
+
 	}
-	
+
 	public void logout() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", this.getLogoutButton());
