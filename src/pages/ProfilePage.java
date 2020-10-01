@@ -1,10 +1,4 @@
 package pages;
-//ucitajte stranicu http://demo.yo-meals.com/member/profile
-
-//	zamenite sve osnovne informacije korisnika
-// verifikujte da je prikazana poruka sa tekstom "Setup Successful"
-//	odjavite se sa sajta
-//	verifikujte da je prikazana poruka sa tekstom "Logout Successfull!"
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -41,10 +35,7 @@ public class ProfilePage extends BasicPage {
 	}
 
 	public WebElement getSaveButton() {
-		// return
-	return	this.driver.findElement(By.xpath("//*[@id=\"profileInfoFrm\"]/div[5]/div/fieldset/input"));
-		// }
-		//return this.driver.findElement(By.className("btn--primary"));
+		return this.driver.findElement(By.xpath("//*[@id=\"profileInfoFrm\"]/div[5]/div/fieldset/input"));
 	}
 
 	public WebElement getCountry() {
@@ -93,13 +84,34 @@ public class ProfilePage extends BasicPage {
 		this.setCountry(country);
 		this.setState(state);
 		this.setCity(city);
-		js.executeScript("arguments[0].click();", this.getSaveButton());
+		js.executeScript("arguments[0].click();", getSaveButton());
 
 	}
-	
-	public void changeProfilePhoto() {
+
+	public WebElement getClickUpload() {
+		return this.driver.findElement(By.xpath("//*[@id=\"profileInfo\"]/div/div[1]/div/a[1]"));
+	}
+
+	public WebElement getImageInput() {
+		return this.driver.findElement(By.xpath("//*[@id=\"form-upload\"]/input"));
+	}
+
+	public WebElement getRemovePhotoButton() {
+
+		return this.driver.findElement(By.xpath("//*[@id=\"profileInfo\"]/div/div[1]/div/a[2]"));
+	}
+
+	public void changeProfilePhoto(String imagePath) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", this.driver.findElement(By.xpath("//*[@id=\"profileInfo\"]/div/div[1]/div/a[1]/i")));
-		//*[@id="profileInfo"]/div/div[1]/div/a[1]/i
+
+		js.executeScript("arguments[0].click();", getClickUpload());
+
+		this.getImageInput().sendKeys(imagePath);
+	}
+
+	public void removePhoto() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		js.executeScript("arguments[0].click();", this.getRemovePhotoButton());
 	}
 }
