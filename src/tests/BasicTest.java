@@ -32,10 +32,10 @@ public class BasicTest {
 		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
 
 		this.driver = new ChromeDriver();
-		new WebDriverWait(driver, 15);
+		this.wait = new WebDriverWait(driver, 15);
 		this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		this.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		js = (JavascriptExecutor) driver;
+		this.js = (JavascriptExecutor) driver;
 
 	
 	}
@@ -61,7 +61,8 @@ public class BasicTest {
 			System.out.println("Success!");
 		}
 		
-		driver.manage().deleteAllCookies();
+		this.driver.manage().deleteAllCookies();
+		this.driver.navigate().refresh();
 
 		
 	}
