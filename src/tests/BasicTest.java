@@ -32,7 +32,7 @@ public class BasicTest {
 		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
 
 		this.driver = new ChromeDriver();
-		new WebDriverWait(driver, 30);
+		new WebDriverWait(driver, 15);
 		this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		this.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		js = (JavascriptExecutor) driver;
@@ -55,7 +55,7 @@ public class BasicTest {
 			File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
 			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss'.png'").format(new Date());
 
-			File DestFile = new File("/screenshots" + fileName);
+			File DestFile = new File("screenshots//" + fileName);
 			FileHandler.copy(SrcFile, DestFile);
 		} else {
 			System.out.println("Success!");
