@@ -53,23 +53,28 @@ public class ProfilePage extends BasicPage {
 
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(String country) throws InterruptedException {
 		Select select = new Select(this.getCountry());
+		Thread.sleep(1000);
 		select.selectByVisibleText(country);
 	}
 
-	public void setState(String state) {
+	public void setState(String state) throws InterruptedException {
 		Select select = new Select(this.getState());
+		Thread.sleep(1000);
+
 		select.selectByVisibleText(state);
 	}
 
-	public void setCity(String city) {
+	public void setCity(String city) throws InterruptedException {
 		Select select = new Select(this.getCity());
+		Thread.sleep(1000);
+
 		select.selectByVisibleText(city);
 	}
 
 	public void changeProfileInfo(String firstName, String lastName, String address, String phone, String zipCode,
-			String country, String state, String city) {
+			String country, String state, String city) throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		this.getFirstName().clear();
 		this.getFirstName().sendKeys(firstName);
