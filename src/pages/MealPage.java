@@ -18,8 +18,7 @@ public class MealPage extends BasicPage {
 	}
 
 	public WebElement getFavoriteButton() {
-		return this.driver.findElement(By.xpath("//*[@id=\"item_116\"]"));
-
+		return this.driver.findElement(By.xpath("//*[@class='product-detail-image']/a"));
 	}
 
 	public WebElement getQuantity() {

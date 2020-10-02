@@ -36,11 +36,11 @@ public class MealItemTest extends BasicTest {
 
 		Assert.assertTrue(nsp.getNotificationMessage()
 				.contains("The Following Errors Occurred:" + "\n" + "Please Select Location"));
-		
+
 		nsp.waitForNotDisappearance();
-		
+
 		Thread.sleep(1000);
-		
+
 		lpp.OpenPopUp();
 		lpp.setLocation("City Center - Albany");
 
@@ -102,7 +102,7 @@ public class MealItemTest extends BasicTest {
 			sa.assertTrue(nsp.getNotificationMessage().contains("Meal Added To Cart"), "[ERROR] Cart is empty!");
 
 		}
-
+		sa.assertAll();
 		Thread.sleep(2000);
 
 		mp.clearCart();
