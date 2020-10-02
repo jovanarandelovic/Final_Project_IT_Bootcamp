@@ -66,14 +66,14 @@ public class MealItemTest extends BasicTest {
 
 		mp.addToFavorites();
 
-		Assert.assertTrue(nsp.getNotificationMessage().contains("Please login first!"), "ERROR: Already logged in!");
+		Assert.assertTrue(nsp.getNotificationMessage().contains("Please login first!"), "[ERROR] Already logged in!");
 		this.driver.navigate().to(baseURL + "guest-user/login-form");
 
 		lp.login(email, password);
 		this.driver.navigate().to(baseURL + "meal/chicken-sandwich-beef-empanadas-combo");
 		mp.addToFavorites();
 		Assert.assertTrue(nsp.getNotificationMessage().contains("Product has been added to your favorites."),
-				"ERROR: Product not added to favorites");
+				"[ERROR] Product not added to favorites");
 	}
 
 	@Test(priority = 10)
