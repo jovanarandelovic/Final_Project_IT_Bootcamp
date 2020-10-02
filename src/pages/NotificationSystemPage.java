@@ -13,13 +13,13 @@ public class NotificationSystemPage extends BasicPage {
 		super(driver, wait, js);
 	}
 
-	public WebElement getNot() {
+	public WebElement getNotification() {
 		return this.driver.findElement(By.xpath(
 				"//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]"));
 	}
 
-	public String getNotText() {
-		return this.getNot().getText();
+	public String getNotificationMessage() {
+		return this.getNotification().getText();
 
 	}
 
