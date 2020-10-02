@@ -37,29 +37,30 @@ public class SearchTest extends BasicTest {
 		SoftAssert sa = new SoftAssert();
 
 		for (int i = 1; i <= 6; i++) {
-
+			Thread.sleep(1500);
 			XSSFRow row = sheet.getRow(i);
 			String location = row.getCell(0).getStringCellValue();
 			String url = row.getCell(1).getStringCellValue();
 			int resultNumber = (int) row.getCell(2).getNumericCellValue();
-			ArrayList<String> meals = new ArrayList<String>();
+			Thread.sleep(1500);
+
 			lpp.OpenPopUp();
+
 			lpp.setLocation(location);
-			Thread.sleep(2000);
+			Thread.sleep(1500);
 			driver.navigate().to(url);
-			Thread.sleep(2000);
+			Thread.sleep(1500);
+			sa.assertEquals(sp.getMealItemNumber(), resultNumber, "[ERROR] The number of meals is not as expected!");
+			Thread.sleep(1500);
 
 			for (int j = 3; j < 3 + resultNumber; j++) {
-				meals.add(row.getCell(i).getStringCellValue());
-				Thread.sleep(2000);
-				sa.assertEquals(sp.getMealItemNumber(), resultNumber);
+				Thread.sleep(1500);
 
+				String meal = row.getCell(j).getStringCellValue();
+				Thread.sleep(1500);
 
+				sa.assertTrue(sp.getNames().get(j - 3).contains(meal), "[ERROR] The meal names are not the same!");
 			}
-
-			sa.assertEquals(sp.getNames(), meals);
-	//		sa.assertEquals(sp.getNames(), meals);
-
 
 		}
 		sa.assertAll();

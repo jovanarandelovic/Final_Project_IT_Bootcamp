@@ -29,7 +29,6 @@ public class SearchPage extends BasicPage {
 	}
 
 	public int getMealItemNumber() {
-		System.out.println(getAllSearchResults().size());
 		return getAllSearchResults().size();
 	}
 }
