@@ -33,7 +33,7 @@ public class ProfileTest extends BasicTest {
 		LoginPage lp = new LoginPage(driver, wait, js);
 		lp.login(email, password);
 
-		Assert.assertTrue(nsp.getNotText().contains("Login Successfull"), "[ERROR] Login failed!");
+		Assert.assertTrue(nsp.getNotificationMessage().contains("Login Successfull"), "[ERROR] Login failed!");
 		nsp.waitForNotDisappearance();
 
 		this.driver.navigate().to(baseURL + "member/profile");
@@ -41,12 +41,12 @@ public class ProfileTest extends BasicTest {
 
 		pp.changeProfileInfo("Roger", "Marsh", "1577  Hide A Way Road", "408-256-2063", "48876", "United States",
 				"Michigan", "Pontiac");
-		Assert.assertTrue(nsp.getNotText().contains("Setup Successful"), "[ERROR] Profile update failed!");
+		Assert.assertTrue(nsp.getNotificationMessage().contains("Setup Successful"), "[ERROR] Profile update failed!");
 		Thread.sleep(2000);
 
 		ap.logout();
 
-		Assert.assertTrue(nsp.getNotText().contains("Logout Successfull!"), "[ERROR] Profile update failed!");
+		Assert.assertTrue(nsp.getNotificationMessage().contains("Logout Successfull!"), "[ERROR] Profile update failed!");
 		nsp.waitForNotDisappearance();
 
 	}
@@ -67,7 +67,7 @@ public class ProfileTest extends BasicTest {
 		LoginPage lp = new LoginPage(driver, wait, js);
 		lp.login(email, password);
 
-		Assert.assertTrue(nsp.getNotText().contains("Login Successfull"), "[ERROR] Login failed!");
+		Assert.assertTrue(nsp.getNotificationMessage().contains("Login Successfull"), "[ERROR] Login failed!");
 		nsp.waitForNotDisappearance();
 
 		this.driver.navigate().to(baseURL + "member/profile");
@@ -75,18 +75,18 @@ public class ProfileTest extends BasicTest {
 		String imgPath = new File("images/profile_photo.jpg").getCanonicalPath();
 		pp.changeProfilePhoto(imgPath);
 		Thread.sleep(2000);
-		Assert.assertTrue(nsp.getNotText().contains("Profile Image Uploaded Successfully"),
+		Assert.assertTrue(nsp.getNotificationMessage().contains("Profile Image Uploaded Successfully"),
 				"[ERROR] Profile photo not uploaded!");
 		nsp.waitForNotDisappearance();
 		Thread.sleep(2000);
 
 		pp.removePhoto();
-		Assert.assertTrue(nsp.getNotText().contains("Profile Image Deleted Successfully"),
+		Assert.assertTrue(nsp.getNotificationMessage().contains("Profile Image Deleted Successfully"),
 				"[ERROR] Profile photo not deleted!");
 		nsp.waitForNotDisappearance();
 
 		ap.logout();
-		Assert.assertTrue(nsp.getNotText().contains("Logout Successfull!"), "[ERROR] Profile update failed!");
+		Assert.assertTrue(nsp.getNotificationMessage().contains("Logout Successfull!"), "[ERROR] Profile update failed!");
 		nsp.waitForNotDisappearance();
 
 	}
