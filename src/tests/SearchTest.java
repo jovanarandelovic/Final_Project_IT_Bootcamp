@@ -30,13 +30,13 @@ public class SearchTest extends BasicTest {
 		lpp.setLocation("City Center - Albany");
 		Thread.sleep(2000);
 
-		File file = new File("data/Data (1).xlsx");
+		File file = new File("data/Data.xlsx");
 		FileInputStream fis = new FileInputStream(file);
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
 		XSSFSheet sheet = wb.getSheet("Meal Search Results");
 		SoftAssert sa = new SoftAssert();
 
-		for (int i = 1; i <= 6; i++) {
+		for (int i = 1; i <= sheet.getLastRowNum(); i++) {
 			Thread.sleep(1500);
 			XSSFRow row = sheet.getRow(i);
 			String location = row.getCell(0).getStringCellValue();
