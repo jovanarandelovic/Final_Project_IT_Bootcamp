@@ -3,7 +3,6 @@ package tests;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -22,7 +21,7 @@ public class SearchTest extends BasicTest {
 
 	@Test
 
-	public void SearchTest() throws IOException, InterruptedException {
+	public void SearchMealTest() throws IOException, InterruptedException {
 		LocationPopUpPage lpp = new LocationPopUpPage(driver, wait, js);
 		SearchPage sp = new SearchPage(driver, wait, js);
 		this.driver.navigate().to(baseURL + "meals");

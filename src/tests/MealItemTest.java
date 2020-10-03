@@ -55,7 +55,7 @@ public class MealItemTest extends BasicTest {
 
 	@Test(priority = 5)
 
-	public void AddMealToFavouriteTest() throws InterruptedException {
+	public void AddMealToFavoriteTest() throws InterruptedException {
 		LocationPopUpPage lpp = new LocationPopUpPage(driver, wait, js);
 		NotificationSystemPage nsp = new NotificationSystemPage(driver, wait, js);
 		MealPage mp = new MealPage(driver, wait, js);
