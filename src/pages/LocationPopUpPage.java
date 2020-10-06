@@ -17,7 +17,6 @@ public class LocationPopUpPage extends BasicPage {
 	}
 
 	public WebElement getCloseButton() {
-
 		return this.driver.findElement(By.className("close-btn-white"));
 	}
 
@@ -26,7 +25,6 @@ public class LocationPopUpPage extends BasicPage {
 	}
 
 	public WebElement getLocationItem(String locationName) {
-
 		return this.driver.findElement(By.xpath("//li/a[contains(text(), '" + locationName + "')]/.."));
 	}
 
@@ -43,11 +41,10 @@ public class LocationPopUpPage extends BasicPage {
 	}
 
 	public void setLocation(String LocationName) {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		getKeyword().click();
-		String value = this.getLocationItem(LocationName).getAttribute("data-value");
-		js.executeScript("arguments[0].value=arguments[1];", getLocationInput(), value);
-		js.executeScript("arguments[0].click();", getSubmit());
+		this.getKeyword().click();
+		this.js.executeScript("arguments[0].value=arguments[1];", getLocationInput(),
+				this.getLocationItem(LocationName).getAttribute("data-value"));
+		this.js.executeScript("arguments[0].click();", getSubmit());
 
 	}
 

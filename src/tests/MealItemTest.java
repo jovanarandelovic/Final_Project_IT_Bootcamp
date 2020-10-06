@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import pages.CartSummaryPage;
 import pages.LocationPopUpPage;
 import pages.LoginPage;
 import pages.MealPage;
@@ -30,6 +31,7 @@ public class MealItemTest extends BasicTest {
 		MealPage mp = new MealPage(driver, wait, js);
 
 		this.driver.navigate().to(baseURL + "meal/chicken-sandwich-beef-empanadas-combo");
+
 		lpp.closePopUp();
 
 		mp.addMealToCart(4);
@@ -80,8 +82,9 @@ public class MealItemTest extends BasicTest {
 
 	public void ClearCartTest() throws InterruptedException, IOException {
 		LocationPopUpPage lpp = new LocationPopUpPage(driver, wait, js);
-		MealPage mp = new MealPage(driver, wait, js);
 		NotificationSystemPage nsp = new NotificationSystemPage(driver, wait, js);
+		MealPage mp = new MealPage(driver, wait, js);
+		CartSummaryPage csp = new CartSummaryPage(driver, wait, js);
 
 		this.driver.navigate().to(baseURL + "meals");
 
@@ -103,13 +106,16 @@ public class MealItemTest extends BasicTest {
 
 		}
 		sa.assertAll();
+
 		Thread.sleep(2000);
 
-		mp.clearCart();
+		csp.clearCart();
+
 		Assert.assertTrue(nsp.getNotificationMessage().contains("All meals removed from Cart successfully"),
 				"[ERROR] Cart is not cleared!");
 
 		fis.close();
+
 		wb.close();
 	}
 

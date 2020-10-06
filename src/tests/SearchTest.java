@@ -67,4 +67,5 @@ public class SearchTest extends BasicTest {
 		fis.close();
 		wb.close();
 	}
+
 }

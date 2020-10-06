@@ -25,7 +25,6 @@ public class SearchPage extends BasicPage {
 			mealNames.add(getAllSearchResults().get(i).getText());
 		}
 		return mealNames;
-
 	}
 
 	public int getMealItemNumber() {

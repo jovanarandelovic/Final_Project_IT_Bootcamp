@@ -20,13 +20,10 @@ public class NotificationSystemPage extends BasicPage {
 
 	public String getNotificationMessage() {
 		return this.getNotification().getText();
-
 	}
 
 	public void waitForNotDisappearance() {
-
-		wait.until(ExpectedConditions.attributeContains(By.xpath("//*[contains(@class, 'system_message')]"), "style",
+		this.wait.until(ExpectedConditions.attributeContains(By.xpath("//*[contains(@class, 'system_message')]"), "style",
 				"display: none;"));
-
 	}
 }

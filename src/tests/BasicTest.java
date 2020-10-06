@@ -25,7 +25,7 @@ public class BasicTest {
 	protected String email = "customer@dummyid.com";
 	protected String password = "12345678a";
 	protected JavascriptExecutor js;
-	
+
 	@BeforeClass
 
 	public void beforeClass() {
@@ -37,7 +37,6 @@ public class BasicTest {
 		this.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		this.js = (JavascriptExecutor) driver;
 
-	
 	}
 
 	@AfterClass
@@ -54,17 +53,14 @@ public class BasicTest {
 			TakesScreenshot scrShot = ((TakesScreenshot) driver);
 			File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
 			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss'.png'").format(new Date());
-
 			File DestFile = new File("screenshots//" + fileName);
 			FileHandler.copy(SrcFile, DestFile);
+		
 		} else {
 			System.out.println("Success!");
 		}
 		
 		this.driver.manage().deleteAllCookies();
 		this.driver.navigate().refresh();
-
-		
 	}
 }
-

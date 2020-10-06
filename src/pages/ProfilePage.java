@@ -62,20 +62,17 @@ public class ProfilePage extends BasicPage {
 	public void setState(String state) throws InterruptedException {
 		Select select = new Select(this.getState());
 		Thread.sleep(1000);
-
 		select.selectByVisibleText(state);
 	}
 
 	public void setCity(String city) throws InterruptedException {
 		Select select = new Select(this.getCity());
 		Thread.sleep(1000);
-
 		select.selectByVisibleText(city);
 	}
 
 	public void changeProfileInfo(String firstName, String lastName, String address, String phone, String zipCode,
 			String country, String state, String city) throws InterruptedException {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
 		this.getFirstName().clear();
 		this.getFirstName().sendKeys(firstName);
 		this.getLastName().clear();
@@ -90,7 +87,6 @@ public class ProfilePage extends BasicPage {
 		this.setState(state);
 		this.setCity(city);
 		js.executeScript("arguments[0].click();", getSaveButton());
-
 	}
 
 	public WebElement getClickUpload() {
@@ -102,21 +98,15 @@ public class ProfilePage extends BasicPage {
 	}
 
 	public WebElement getRemovePhotoButton() {
-
 		return this.driver.findElement(By.xpath("//*[@id=\"profileInfo\"]/div/div[1]/div/a[2]"));
 	}
 
 	public void changeProfilePhoto(String imagePath) {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		js.executeScript("arguments[0].click();", getClickUpload());
-
+		this.js.executeScript("arguments[0].click();", getClickUpload());
 		this.getImageInput().sendKeys(imagePath);
 	}
 
 	public void removePhoto() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		js.executeScript("arguments[0].click();", this.getRemovePhotoButton());
+		this.js.executeScript("arguments[0].click();", this.getRemovePhotoButton());
 	}
 }

@@ -26,27 +26,14 @@ public class MealPage extends BasicPage {
 				.findElement(By.xpath("//*[@id=\"body\"]/section[1]/div/div/div[2]/div/div[3]/div[1]/ul/li[3]/input"));
 	}
 
-	public WebElement getClearAllButton() {
-		return this.driver.findElement(By.xpath("//*[@id=\"cartSummary\"]/div/div[1]/a[2]"));
-	}
-
 	public void addToFavorites() {
 		this.getFavoriteButton().click();
 	}
 
 	public void addMealToCart(int amount) {
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
 		this.getQuantity().sendKeys(Keys.CONTROL, "a");
 		this.getQuantity().sendKeys(String.valueOf(amount));
-		js.executeScript("arguments[0].click();", getAddToCartButton());
-
+		this.js.executeScript("arguments[0].click();", getAddToCartButton());
 	}
 
-	public void clearCart() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", this.getClearAllButton());
-
-	}
 }
