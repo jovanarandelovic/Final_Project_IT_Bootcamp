@@ -1,5 +1,5 @@
 <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Final_Project_IT_Bootcamp_0"></a>Final_Project_IT_Bootcamp</h1>
-<p class="has-line-data" data-line-start="1" data-line-end="3">This is a final project before completion of the course Quality Assurance taught by IT Bootcamp in Serbia. It is based on the Selenium testing framework and implements TestNG and Apache POI libraries. This automation test can be run on ChromeDriver 85.0.4183.87<br>
+<p class="has-line-data" data-line-start="1" data-line-end="3">This is a final project before completion of the course Quality Assurance taught by IT Bootcamp in Serbia. It is based on the Selenium testing framework and implements TestNG (version 7.3.0) and ApachePOI libraries. This automation test can be run on ChromeDriver 85.0.4183.87<br>
 <img src="https://alternative.me/media/256/selenium-icon-r8to6r6vkc0esz9w-c.png" alt=""></p>
 <hr>
 <p class="has-line-data" data-line-start="6" data-line-end="7"><a href="http://demo.yo-meals.com/">http://demo.yo-meals.com/</a> (developed by FATbit Technologies) demo Web app’s different functionalities were tested in three different tests.</p>
